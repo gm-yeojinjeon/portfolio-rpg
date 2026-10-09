@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 검색엔진 노출 완전 차단 (noindex, nofollow) -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GM YEOJIN JEON - PORTFOLIO</title>
+    
+    <!-- Modern Web Font (Noto Sans KR & Rajdhani) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === RESET & BASE STYLES === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: #e0e6ed;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 20px;
+            padding-top: 80px;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #00F0FF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* === STICKY QUICK NAV === */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #00F0FF;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.15);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #FFD700;
+            border: 1px solid #FFD700;
+            border-radius: 20px;
+            font-family: 'Rajdhani', 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 6px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #FFD700;
+            color: #0f172a;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+        }
+
+        /* === MODERN MOBILE RPG CARD CONTAINER === */
+        .rpg-box {
+            background: rgba(30, 41, 59, 0.7);
+            border: 2px solid rgba(0, 240, 255, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            backdrop-filter: blur(8px);
+            padding: 28px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .rpg-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #00F0FF;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid rgba(0, 240, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        /* === 1. HERO / COVER SECTION === */
+        #hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 240, 255, 0.1) 0%, rgba(11, 14, 20, 0) 70%);
+        }
+
+        .ssr-badge {
+            background: linear-gradient(90deg, #FFD700, #FF8C00);
+            color: #000;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            padding: 4px 16px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 35px;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #00F0FF, #0072FF);
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            transition: all 0.2s;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
+        }
+
+        /* === 2. PROFILE & STATS === */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 850px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-list p {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .info-label {
+            color: #FFD700;
+            font-weight: 700;
+            width: 90px;
+            display: inline-block;
+        }
+
+        /* RPG Gauge Bar */
+        .stat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-name {
+            width: 140px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .stat-bar-outer {
+            flex-grow: 1;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            border-radius: 10px;
+            height: 16px;
+            overflow: hidden;
+        }
+
+        .stat-bar-inner {
+            height: 100%;
+            background: linear-gradient(90deg, #00F0FF, #0072FF);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+        }
+
+        .stat-val {
+            width: 40px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            color: #FFD700;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background: rgba(15, 23, 42, 0.6);
+            color: #00F0FF;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            padding: 4px 14px;
+            margin: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* === 3. QUEST / PROJECT SECTION === */
+        .quest-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .quest-card:hover {
+            border-color: #00F0FF;
+            transform: translateY(-2px);
+        }
+
+        .quest-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 8px;
+        }
+
+        .quest-tag {
+            background: rgba(0, 240, 255, 0.1);
+            color: #00F0FF;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            font-size: 0.85rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+        }
+
+        .quest-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .quest-platform {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            background: #1e293b;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .quest-period {
+            color: #94a3b8;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .quest-step {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.98rem;
+        }
+
+        .quest-icon {
+            display: inline-block;
+            width: 28px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .key-result-box {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), rgba(0, 240, 255, 0.05));
+            border-left: 3px solid #FFD700;
+            border-radius: 0 8px 8px 0;
+            padding: 10px 14px;
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* === 4. ACHIEVEMENTS SECTION === */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+        }
+
+        .achievement-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px dashed rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .achievement-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .highlight-val {
+            color: #00F0FF;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY NAV -->
+    <nav class="sticky-nav">
+        <button class="nav-btn" onclick="scrollToId('main-content')">PROFILE</button>
+        <button class="nav-btn" onclick="scrollToId('project-section')">PROJECTS</button>
+        <button class="nav-btn" onclick="scrollToId('achievement-section')">ACHIEVEMENTS</button>
+    </nav>
+
+    <!-- SECTION 1: COVER / HERO -->
+    <section id="hero" class="rpg-box">
+        <div class="ssr-badge">★ SSR LEGENDARY OPERATOR</div>
+        <div class="hero-title">GAME MASTER PORTFOLIO</div>
+        <div class="hero-subtitle">전여진 (JEON YEOJIN)</div>
+        <button class="start-btn" onclick="scrollToId('main-content')">CHARACTER INSPECT</button>
+    </section>
+
+    <!-- SECTION 2: CHARACTER -->
+    <section id="main-content" class="rpg-box">
+        <div class="rpg-title">👤 CHARACTER PROFILE & STATS</div>
+        
+        <div class="profile-grid">
+            <!-- Basic Info -->
+            <div class="info-list">
+                <p><span class="info-label">NAME</span> 전여진[cite: 2]</p>
+                <p><span class="info-label">CLASS</span> GAME MASTER (GM) / PM[cite: 2, 5]</p>
+                <p><span class="info-label">BIRTH</span> 1995.10.16[cite: 2]</p>
+                <p><span class="info-label">CONTACT</span> 010-8033-7712[cite: 2]</p>
+                <p><span class="info-label">EMAIL</span> <a href="mailto:mittyeojin@gmail.com">mittyeojin@gmail.com</a>[cite: 2]</p>
+                <p><span class="info-label">EDU</span> Manitoba Institute of Trades and Technology[cite: 2]</p>
+                <p><span class="info-label">SKILL</span> TOEIC 855점 / 비즈니스 영어[cite: 2]</p>
+            </div>
+
+            <!-- RPG Stats -->
+            <div class="stat-container">
+                <div class="stat-row">
+                    <span class="stat-name">COMMUNICATION</span>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" style="width: 95%;"></div></div>
+                    <span class="stat-val">95</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">GLOBAL GM</span>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" style="width: 90%;"></div></div>
+                    <span class="stat-val">90</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">LAUNCHING EXP</span>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" style="width: 100%;"></div></div>
+                    <span class="stat-val">MAX</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">POLICY SETUP</span>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" style="width: 90%;"></div></div>
+                    <span class="stat-val">90</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">RESPONSIBILITY</span>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" style="width: 100%;"></div></div>
+                    <span class="stat-val">MAX</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 25px;">
+            <span class="badge-tag">#도전의아이콘</span>
+            <span class="badge-tag">#긍정적사고</span>
+            <span class="badge-tag">#책임감</span>
+            <span class="badge-tag">#서비스마인드</span>
+            <span class="badge-tag">#친화력</span>
+            <span class="badge-tag">#꼼꼼함</span>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PROJECT -->
+    <section id="project-section" class="rpg-box">
+        <div class="rpg-title">⚔️ PROJECT QUEST LOG</div>
+
+        <!-- Quest 1 -->
+        <div class="quest-card">
+            <div class="quest-header">
+                <span>01. Dragon Nest</span>
+                <span class="quest-tag">PM</span>
+            </div>
+            <div class="quest-meta">
+                <span class="quest-platform">🖥️ PC</span>
+                <span class="quest-period">🗓️ 2018.05 ~ 2021.05</span>[cite: 5]
+            </div>
+            <div class="quest-step"><span class="quest-icon">💥</span><span><b>퀘스트 발생:</b> 해외 서비스의 유저 이탈을 방지하고 매출 구조 개선 필요.</span>[cite: 5]</div>
+            <div class="quest-step"><span class="quest-icon">🛠</span><span><b>공략법:</b> VoC 기반 유저 현황 파악, 대규모 업데이트 대응 마케팅 기획 및 연계 이벤트 진행.</span>[cite: 5]</div>
+            <div class="key-result-box">
+                🎯 <strong style="color:#FFD700;">KEY RESULT:</strong> 유저 리텐션 증대 & 재런칭 이후 <strong style="color:#00F0FF;">역대 최고 매출 달성</strong>[cite: 5]
+            </div>
+        </div>
+
+        <!-- Quest 2 -->
+        <div class="quest-card">
+            <div class="quest-header">
+                <span>02. 데카론M</span>
+                <span class="quest-tag">GM</span>
+            </div>
+            <div class="quest-meta">
+                <span class="quest-platform">📱 모바일</span>
+                <span class="quest-period">🗓️ 2022.10 ~ 2024.06</span>[cite: 5]
+            </div>
+            <div class="quest-step"><span class="quest-icon">💥</span><span><b>퀘스트 발생:</b> 서비스 정기 점검, 장애 대응 및 유저 만족도 향상 과제.</span>[cite: 5]</div>
+            <div class="quest-step"><span class="quest-icon">🛠</span><span><b>공략법:</b> 라이브 점검 관리, 운영 정책 및 고객센터 CS 프로세스 개선안 제안.</span>[cite: 5]</div>
+            <div class="key-result-box">
+                🎯 <strong style="color:#FFD700;">KEY RESULT:</strong> CS 프로세스 개선으로 <strong style="color:#00F0FF;">유저 서비스 만족도 증대</strong> & 안정적 서비스 유지[cite: 5]
+            </div>
+        </div>
+
+        <!-- Quest 3 -->
+        <div class="quest-card">
+            <div class="quest-header">
+                <span>03. Dekaron G</span>
+                <span class="quest-tag">GM</span>
+            </div>
+            <div class="quest-meta">
+                <span class="quest-platform">🌐 멀티플랫폼</span>
+                <span class="quest-period">🗓️ 2022.10 ~ 2024.08</span>[cite: 6]
+            </div>
+            <div class="quest-step"><span class="quest-icon">💥</span><span><b>퀘스트 발생:</b> 글로벌 타겟 유저 리텐션 유지 및 비정상 어뷰징 대응.</span>[cite: 6]</div>
+            <div class="quest-step"><span class="quest-icon">🛠</span><span><b>공략법:</b> 정보 제공형 GM 콘텐츠 제작, 운영 이벤트 진행, 임의 환불 및 비정상 유저 단속.</span>[cite: 6]</div>
+            <div class="key-result-box">
+                🎯 <strong style="color:#FFD700;">KEY RESULT:</strong> 어뷰징 단속으로 <strong style="color:#00F0FF;">매출 피해 최소화</strong> & 쾌적한 글로벌 플레이 환경 구축[cite: 6]
+            </div>
+        </div>
+
+        <!-- Quest 4 -->
+        <div class="quest-card">
+            <div class="quest-header">
+                <span>04. Friends Match: Tower Defense</span>
+                <span class="quest-tag">GM</span>
+            </div>
+            <div class="quest-meta">
+                <span class="quest-platform">📱 모바일</span>
+                <span class="quest-period">🗓️ 2024.06 ~ 2024.11</span>[cite: 6]
+            </div>
+            <div class="quest-step"><span class="quest-icon">💥</span><span><b>퀘스트 발생:</b> 신규 글로벌 게임 런칭을 위한 운영 전반 프로세스 부재.</span>[cite: 6]</div>
+            <div class="quest-step"><span class="quest-icon">🛠</span><span><b>공략법:</b> 운영 프로세스 수립, 운영툴 테스트, 글로벌 커뮤니티 개설 및 리스크 사전 검토.</span>[cite: 6]</div>
+            <div class="key-result-box">
+                🎯 <strong style="color:#FFD700;">KEY RESULT:</strong> 성공적인 글로벌 런칭 및 <strong style="color:#00F0FF;">게임 콘텐츠 완성도 향상</strong> 기여[cite: 6]
+            </div>
+        </div>
+
+        <!-- Quest 5 -->
+        <div class="quest-card">
+            <div class="quest-header">
+                <span>05. BTS Island: In The Seom</span>
+                <span class="quest-tag">GM</span>
+            </div>
+            <div class="quest-meta">
+                <span class="quest-platform">📱 모바일</span>
+                <span class="quest-period">🗓️ 2025.03 ~ 2026.06</span>[cite: 7]
+            </div>
+            <div class="quest-step"><span class="quest-icon">💥</span><span><b>퀘스트 발생:</b> 글로벌 라이브 서비스 운영 고도화 및 팬덤 커뮤니티 활성화.</span>[cite: 7]</div>
+            <div class="quest-step"><span class="quest-icon">🛠</span><span><b>공략법:</b> 운영툴 개선, 망분리 보안 가이드 구축, 팬덤 맞춤형 아티스트 생일 콘텐츠 기획.</span>[cite: 7]</div>
+            <div class="key-result-box">
+                🎯 <strong style="color:#FFD700;">KEY RESULT:</strong> 축전 영상 업로드 당월 <strong style="color:#00F0FF;">평균 RT 12.7배 / 노출 수 5.3배 증가</strong> 달성[cite: 12]
+            </div>
+        </div>
+
+        <!-- Quest 6 -->
+        <div class="quest-card">
+            <div class="quest-header">
+                <span>06. Arkheron</span>
+                <span class="quest-tag">GM</span>
+            </div>
+            <div class="quest-meta">
+                <span class="quest-platform">🌐 멀티플랫폼</span>
+                <span class="quest-period">🗓️ 2026.06 ~ NOW</span>[cite: 7]
+            </div>
+            <div class="quest-step"><span class="quest-icon">💥</span><span><b>퀘스트 발생:</b> 플랫폼별 특성 대응, CBT 운영 프로세스 수립 및 유저 소통 강화.</span>[cite: 7]</div>
+            <div class="quest-step"><span class="quest-icon">🛠</span><span><b>공략법:</b> 영문 공지 현지화, 공식 라이브 방송 진행, 유튜브 숏츠 기획 및 GM 이벤트 실시.</span>[cite: 7]</div>
+            <div class="key-result-box">
+                🎯 <strong style="color:#FFD700;">KEY RESULT:</strong> 긍정적 브랜드 인지도 형성, <strong style="color:#00F0FF;">CBT 참여 유도 & 유저 접점 극대화</strong>[cite: 7]
+            </div>
+        </div>
+
+        <!-- Quest 7 -->
+        <div class="quest-card">
+            <div class="quest-header">
+                <span>07. Final Third</span>
+                <span class="quest-tag">GM</span>
+            </div>
+            <div class="quest-meta">
+                <span class="quest-platform">🌐 멀티플랫폼</span>
+                <span class="quest-period">🗓️ 2026.09 ~ NOW</span>[cite: 8]
+            </div>
+            <div class="quest-step"><span class="quest-icon">💥</span><span><b>퀘스트 발생:</b> 멀티 플랫폼, CBT 운영 프로세스 수립 및 유저 소통 강화.</span>[cite: 8]</div>
+            <div class="quest-step"><span class="quest-icon">🛠</span><span><b>공략법:</b> CBT 프로세스 수립, 공지사항 및 운영 콘텐츠 작성.</span>[cite: 8]</div>
+            <div class="key-result-box">
+                🎯 <strong style="color:#FFD700;">KEY RESULT:</strong> 테스트 기간 <strong style="color:#00F0FF;">안정적인 정보 전달 기반 마련</strong>[cite: 8]
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: KEY ACHIEVEMENTS -->
+    <section id="achievement-section" class="rpg-box">
+        <div class="rpg-title">🏆 SYSTEM ACHIEVEMENTS</div>
+
+        <div class="achievement-grid">
+            <div class="achievement-card">
+                <div class="achievement-title">🎮 프로젝트 런칭 경험</div>
+                <p>· 런칭 체크리스트 작성</p>[cite: 9]
+                <p>· 게임별 운영 정책 수립</p>[cite: 9]
+                <p style="margin-top:5px;">준비/실행: <span class="highlight-val">95%</span></p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-title">📢 GM 콘텐츠 기획</div>
+                <p>· 정보 제공형 콘텐츠 제작</p>[cite: 11]
+                <p>· 유저 Voice & 개발팀 소통</p>[cite: 11]
+                <p style="margin-top:5px;">달성도: <span class="highlight-val">반응 호조</span></p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-title">📲 SNS & 소통 운영</div>
+                <p>· 팬덤 맞춤형 바이럴 영상</p>[cite: 12]
+                <p>· 공식 라이브 방송 진행</p>[cite: 7]
+                <p style="margin-top:5px;">달성도: <span class="highlight-val">RT 12.7배 ↑</span></p>[cite: 12]
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-title">📈 대규모 업데이트 총괄</div>
+                <p>· BM & 운영 이벤트 기획</p>[cite: 10]
+                <p>· 마케팅/사업/운영 총괄</p>[cite: 10]
+                <p style="margin-top:5px;">달성도: <span class="highlight-val">최고 매출</span></p>[cite: 5]
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>THANK YOU FOR READING!</p>
+        <p style="margin-top: 5px; color: #00F0FF;">YEOJIN JEON PORTFOLIO © ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        function scrollToId(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
+        }
+    </script>
+</body>
+</html>
